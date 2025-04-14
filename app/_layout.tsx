@@ -1,10 +1,10 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Tabs } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
+import { Stack, Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { FontAwesome } from "@expo/vector-icons";
+import * as SplashScreen from "expo-splash-screen";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
@@ -30,27 +30,9 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Tabs
-        screenOptions={{
-          tabBarActiveTintColor: colorScheme === "dark" ? "#fff" : "#000",
-          tabBarInactiveTintColor: "gray",
-        }}
-      >
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: "Expenses",
-            tabBarIcon: ({ color }) => <FontAwesome name="list" size={24} color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="analytics"
-          options={{
-            title: "Analytics",
-            tabBarIcon: ({ color }) => <FontAwesome name="bar-chart" size={24} color={color} />,
-          }}
-        />
-      </Tabs>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
   );
