@@ -7,6 +7,16 @@ export interface Expense {
   description?: string;
 }
 
+export const EXPENSE_CATEGORIES: Record<string, string[]> = {
+  Food: ["Groceries", "Restaurant", "Coffee", "Fast Food"],
+  Transportation: ["Fuel", "Public Transit", "Taxi/Ride-share", "Parking"],
+  Entertainment: ["Streaming", "Movies", "Games", "Events"],
+  Shopping: ["Clothing", "Electronics", "Home", "Personal Care"],
+  Bills: ["Rent", "Utilities", "Insurance", "Phone/Internet"],
+  Health: ["Doctor", "Pharmacy", "Gym", "Wellness"],
+  Other: ["Miscellaneous"],
+};
+
 export const dummyExpenses: Expense[] = [
   {
     id: "1",
